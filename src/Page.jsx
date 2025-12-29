@@ -24,9 +24,11 @@ function Page() {
             <main className="main">
                 <div className="page">
                     <article className="main-article">
-                        <img className="main-article__image" src="./img/image_892.jpg" alt="Princess Beatrice and Edoardo Mapelli Mozzi in wedding attire coming out of a church" />
-                            <h1 className="main-article__header">Princess Beatrice’s Wedding</h1>
-                            <p className="main-article__summary">Coverage of Princess Beatrice’s wedding to Edoardo Mapelli Mozzi in July 2020. Coverage of Princess Beatrice’s wedding to Edoardo Mapelli.</p>
+                        <Link to="/article">
+                            <img className="main-article__image" src="./img/image_892.jpg" alt="Princess Beatrice and Edoardo Mapelli Mozzi in wedding attire coming out of a church" />
+                                <h1 className="main-article__header">Princess Beatrice’s Wedding</h1>
+                                <p className="main-article__summary">Coverage of Princess Beatrice’s wedding to Edoardo Mapelli Mozzi in July 2020. Coverage of Princess Beatrice’s wedding to Edoardo Mapelli.</p>
+                        </Link>
                     </article>
                     <aside className="top">
                         <span className="top__header">Top Stories</span>
