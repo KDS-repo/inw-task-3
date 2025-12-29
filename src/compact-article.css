@@ -1,0 +1,29 @@
+.compact-article {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+    max-width: 100%;
+}
+
+.compact-article__image {
+    flex: 1 0 100%;
+    max-width: 100%;
+    max-height: 242.69px;
+    min-height: 0;
+    object-fit:contain;
+}
+
+.compact-article__header {
+    font-family: Inter, serif;
+    font-size: 22px;
+    line-height: 140%;
+    margin: 0;
+}
+
+.compact-article__summary {
+    font-family: Inter, serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 160%;
+    margin: 0;
+}

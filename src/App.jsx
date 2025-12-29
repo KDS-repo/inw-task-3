@@ -1,6 +1,12 @@
+import { Routes, Route } from 'react-router-dom'
+import Page from "./Page.jsx"
+
 function App() {
   return (
-    <div>Hello React!</div>
+    <Routes>
+      <Route path='/' element={<Page />}>
+      </Route>
+    </Routes>
   )
 }
 
