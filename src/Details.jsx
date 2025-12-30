@@ -2,9 +2,11 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
 function Details() {
+    const { id } = useParams()
     const navigate = useNavigate()
     const [articleText, setArticleText] = useState('Loading random article...')
 
+    console.log(id)
     useEffect(() => {
         const randomId = Math.floor(Math.random() * 150) + 1
         fetch(`https://dummyjson.com/posts/${randomId}`)
