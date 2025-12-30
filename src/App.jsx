@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import Login from "./Login.jsx"
 import Page from "./Page.jsx"
 import Details from './Details.jsx'
+import './index.css'
 
 function App() {
   return (
