@@ -4,11 +4,11 @@ import { useState } from "react";
 
 function Header() {
     const [isMenuVisible, setIsMenuVisible] = useState(false);
-    function toggleMenu(){
+    function toggleMenu() {
         setIsMenuVisible(!isMenuVisible);
     }
     //Save for other buttons since they should close the menu, and it won't happen automatically
-    function closeMenu(){
+    function closeMenu() {
         setIsMenuVisible(false);
     }
 
@@ -18,7 +18,9 @@ function Header() {
                 <img className="header__hamburger-icon" src={svgs.burger_menu_svgrepo_com} alt="burger menu symbol" />
             </button>
             <div className="header__name-box">
-                <Link to={`/`} className="header__name">Show Business</Link>
+                <Link to={`/`} onClick={closeMenu} className="header__name">
+                    Show Business
+                </Link>
             </div>
             <nav className="header__navigation">
                 <a className="header__direction">Home</a>
