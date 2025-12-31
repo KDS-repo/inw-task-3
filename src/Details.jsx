@@ -18,15 +18,15 @@ function Details() {
     }, [])
 
     return (
-        <div className="details-page">
+        <main className="details-page">
             <article className="full-article">
-                <h1>{post.title}</h1>
-                <img className="main-article__image" src={post.image} />
+                <h1 className="full-article__header">{post.title}</h1>
+                <img className="full-article__image" src={post.image} />
                 <div className="full-article__content">
                     {post.body}
                 </div>
             </article>
-        </div>
+        </main>
     )
 }
 

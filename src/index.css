@@ -9,6 +9,7 @@
 @import url(relevant.css);
 @import url(top.css);
 @import url(main.css);
+@import url(details.css);
 
 :root {
   --brand-green: #2AD18A;
