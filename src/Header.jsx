@@ -8,7 +8,7 @@ function Header() {
                 <img className="header__hamburger-icon" src={svgs.burger_menu_svgrepo_com} alt="burger menu symbol" />
             </button>
             <div className="header__name-box">
-                <a className="header__name">Show Business</a>
+                <Link to={`/`} className="header__name">Show Business</Link>
             </div>
             <nav className="header__navigation">
                 <a className="header__direction">Home</a>

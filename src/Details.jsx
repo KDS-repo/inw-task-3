@@ -19,8 +19,6 @@ function Details() {
 
     return (
         <div className="details-page">
-            <button onClick={() => navigate(-1)} className="back-button">← Back to News</button>
-
             <article className="full-article">
                 <h1>{post.title}</h1>
                 <img className="main-article__image" src={post.image} />
