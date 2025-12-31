@@ -7,7 +7,7 @@ function Top({ posts }) {
             <span className="top__header">Top Stories</span>
             <div className="list">
                 {posts.map((post, index) =>
-                    <Link to={`/article/${post.id}`}  key={post.id}>
+                    <Link to={`/article/${post.id}`}  key={post.id} state={post}>
                         <article className="article">
                             <div>
                                 <div className="article__enumerator">{index + 1}</div>

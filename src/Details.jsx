@@ -1,12 +1,14 @@
 import { useParams, useNavigate } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
 function Details() {
     const { id } = useParams()
     const navigate = useNavigate()
-    const [articleText, setArticleText] = useState('Loading random article...')
 
-    console.log(id)
+    const location = useLocation();
+    const post = location.state || {};
+
     useEffect(() => {
         const randomId = Math.floor(Math.random() * 150) + 1
         fetch(`https://dummyjson.com/posts/${randomId}`)
@@ -20,9 +22,10 @@ function Details() {
             <button onClick={() => navigate(-1)} className="back-button">← Back to News</button>
 
             <article className="full-article">
-                <h1>Random Article</h1>
+                <h1>{post.title}</h1>
+                <img className="main-article__image" src={post.image} />
                 <div className="full-article__content">
-                    {articleText}
+                    {post.body}
                 </div>
             </article>
         </div>

@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import images from '../img/index.js'
-import svgs from '../svg/index.js'
 import Page from './Page.jsx'
 
 function FrontPage() {
@@ -36,7 +35,7 @@ function FrontPage() {
             <div className="relevant">
                 {postsWithImages.slice(-8).map((post) =>
                     <article key={post.id} className="compact-article">
-                        <Link to={`/article/${post.id}`}>
+                        <Link to={`/article/${post.id}`} state={post}>
                             <img loading="lazy" className="compact-article__image" src={post.image} alt="Photo of Ryan Reynolds and Blake Lively on an event" />
                             <h1 className="compact-article__header">{post.title}</h1>
                             <p className="compact-article__summary">{post.body.substring(0, 80)}...</p>
