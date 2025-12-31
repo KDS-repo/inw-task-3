@@ -1,9 +1,32 @@
 import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 import images from '../img/index.js'
 import svgs from '../svg/index.js'
 
 function Page() {
-    return (
+    const [posts, setPosts] = useState([])
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+        function fetchPosts() {
+            fetch('https://dummyjson.com/posts?limit=12')
+                .then((response) => response.json())
+                .then((data) => setPosts(data.posts || []))
+                .catch((error) => console.log('Failed to fetch posts:', error))
+                .finally(setLoading(false))
+        }
+        fetchPosts()
+    }, [])
+
+    const imagesArray = Object.values(images).slice(-8)
+    const postsWithImages = posts.map((post, index) => ({
+        ...post,
+        image: imagesArray[index] // or images[index]?.url if images are objects
+    }));
+
+    if (loading) {
+        return <div className="list-page">Loading posts...</div>
+    } else return (
         <main className="main">
             <div className="page">
                 <article className="main-article">
@@ -414,62 +437,15 @@ function Page() {
                 </article>
             </div>
             <div className="relevant">
-                <Link to="/article/21">
-                    <article className="compact-article">
-                        <img loading="lazy" className="compact-article__image" src={images.image_912} alt="Photo of Ryan Reynolds and Blake Lively on an event" />
-                        <h1 className="compact-article__header">Ryan Reynolds and Blake Lively’s Philanthropy</h1>
-                        <p className="compact-article__summary">Updates on the philanthropic activities of Ryan Reynolds.</p>
+                {postsWithImages.slice(0, 8).map((post) =>
+                    <article key={post.id} className="compact-article">
+                        <Link to={"/article/${post.id}"}>
+                            <img loading="lazy" className="compact-article__image" src={post.image} alt="Photo of Ryan Reynolds and Blake Lively on an event" />
+                            <h1 className="compact-article__header">{post.title}</h1>
+                            <p className="compact-article__summary">{post.body.substring(0, 80)}...</p>
+                        </Link>
                     </article>
-                </Link>
-                <Link to="/article/22">
-                    <article className="compact-article">
-                        <img loading="lazy" className="compact-article__image" src={images.image_913} alt="Headshot of Prince Andrew in a suit with a serious expression" />
-                        <h1 className="compact-article__header">Prince Andrew’s Legal Issues</h1>
-                        <p className="compact-article__summary">Ongoing coverage of legal matters involving Prince Andrew.</p>
-                    </article>
-                </Link>
-                <Link to="/article/23">
-                    <article className="compact-article">
-                        <img loading="lazy" className="compact-article__image" src={images.image_914} alt="Photo from Reese Witherspoon's event photoshoot" />
-                        <h1 className="compact-article__header">Reese Witherspoon’s Production Ventures</h1>
-                        <p className="compact-article__summary">News on Leonardo DiCaprio’s ongoing environmental.</p>
-                    </article>
-                </Link>
-                <Link to="/article/24">
-                    <article className="compact-article">
-                        <img loading="lazy" className="compact-article__image" src={images.image_915} alt="Photo of Queen Elizabeth the second in her signature blue hat" />
-                        <h1 className="compact-article__header">Queen Elizabeth II’s Health Updates</h1>
-                        <p className="compact-article__summary">Periodic updates on the health of Queen Elizabeth II.</p>
-                    </article>
-                </Link>
-                <Link to="/article/25">
-                    <article className="compact-article">
-                        <img loading="lazy" className="compact-article__image" src={images.image_916} alt="Photo of Prince Andrew's book on an exhibition shelf" />
-                        <h1 className="compact-article__header">Prince Harry’s Memoir Announcement</h1>
-                        <p className="compact-article__summary">Reports on Prince Harry’s announcement of a forthcoming.</p>
-                    </article>
-                </Link>
-                <Link to="/article/26">
-                    <article className="compact-article">
-                        <img loading="lazy" className="compact-article__image" src={images.image_917} alt="Headshot of Leonardo DiCaprio in a casual jacket" />
-                        <h1 className="compact-article__header">Leonardo DiCaprio’s Environmental Advocacy</h1>
-                        <p className="compact-article__summary">News on Leonardo DiCaprio’s ongoing environmental advocacy.</p>
-                    </article>
-                </Link>
-                <Link to="/article/27">
-                    <article className="compact-article">
-                        <img loading="lazy" className="compact-article__image" src={images.image_918} alt="Headshot of Princess Eugenie and her spouse together, with wide smiles" />
-                        <h1 className="compact-article__header">Princess Eugenie’s Pregnancy Announcement</h1>
-                        <p className="compact-article__summary">News about Princess Eugenie, daughter of Prince Andrew.</p>
-                    </article>
-                </Link>
-                <Link to="/article/28">
-                    <article className="compact-article">
-                        <img loading="lazy" className="compact-article__image" src={images.image_919} alt="Photo of Emma Stone in her Cruella costume" />
-                        <h1 className="compact-article__header">Emma Stone’s Role in "Cruella"</h1>
-                        <p className="compact-article__summary">Coverage of Emma Stone’s role as the iconic Disney villain.</p>
-                    </article>
-                </Link>
+                )}
             </div>
         </main>
     )

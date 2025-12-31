@@ -25,7 +25,7 @@ for (const path in imageModules) {
     .replace('./', '')      // Remove './'
     .replace('.jpg', '');   // Remove extension
   
-  // ⭐ CRITICAL: Access .default to get the URL
+  // I need .default to get the URL
   images[key] = imageModules[path].default;
 }
 
