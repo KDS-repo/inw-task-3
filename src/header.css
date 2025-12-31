@@ -36,7 +36,7 @@
     .header__login-box {
         justify-content: center;
     }
-    [data-menu="visible"].header {
+    [data-menu="true"].header {
         transform: translateX(0);
     }
 }

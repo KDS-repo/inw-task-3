@@ -1,10 +1,20 @@
 import { Link } from "react-router-dom";
 import svgs from '../svg/index.js'
+import { useState } from "react";
 
 function Header() {
+    const [isMenuVisible, setIsMenuVisible] = useState(false);
+    function toggleMenu(){
+        setIsMenuVisible(!isMenuVisible);
+    }
+    //Save for other buttons since they should close the menu, and it won't happen automatically
+    function closeMenu(){
+        setIsMenuVisible(false);
+    }
+
     return (
-        <header id="menu" className="header" data-menu="false">
-            <button id="toggle" className="header__hamburger-container" aria-label="side menu toggle">
+        <header id="menu" className="header" data-menu={isMenuVisible}>
+            <button id="toggle" className="header__hamburger-container" onClick={toggleMenu} aria-label="side menu toggle">
                 <img className="header__hamburger-icon" src={svgs.burger_menu_svgrepo_com} alt="burger menu symbol" />
             </button>
             <div className="header__name-box">
