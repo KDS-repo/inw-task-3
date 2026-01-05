@@ -1,0 +1,20 @@
+.footer {
+    padding: 80px;
+    border-top: 1px solid #9DA3AE;
+}
+
+.footer__logo {
+    font-family: Poppins, sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    margin: 0;
+}
+
+.footer__links {
+    font-family: Inter, serif;
+    font-size: 18px;
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 160%;
+    margin: 0;
+}
