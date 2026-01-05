@@ -1,29 +1,19 @@
-import { useParams, useNavigate } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux';
 
 function Details() {
-    const { id } = useParams()
-    const navigate = useNavigate()
-
     const location = useLocation();
     const post = location.state || {};
 
-    useEffect(() => {
-        const randomId = Math.floor(Math.random() * 150) + 1
-        fetch(`https://dummyjson.com/posts/${randomId}`)
-            .then(res => res.json())
-            .then(data => setArticleText(data.body || 'No content available'))
-            .catch(() => setArticleText('Failed to load article'))
-    }, [])
+    const article = useSelector((state) => state.articles.currentArticle);
 
     return (
         <main className="details-page">
             <article className="full-article">
-                <h1 className="full-article__header">{post.title}</h1>
-                <img className="full-article__image" src={post.image} />
+                <h1 className="full-article__header">{article.title}</h1>
+                <img className="full-article__image" src={article.image} />
                 <div className="full-article__content">
-                    {post.body}
+                    {article.body}
                 </div>
             </article>
         </main>
