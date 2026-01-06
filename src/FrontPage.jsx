@@ -1,36 +1,9 @@
 import { Link } from 'react-router-dom'
-import { useState, useEffect } from 'react'
-import images from '../img/index.js'
 import Page from './Page.jsx'
-import { useDispatch, useSelector } from 'react-redux'
-import { setLoading, setArticlesList } from './redux/articleSlice.js'
+import { useSelector } from 'react-redux'
 
 function FrontPage() {
-    const dispatch = useDispatch()
     const { articlesList, loading } = useSelector((state) => state.articles)
-    const [posts, setPosts] = useState([])
-
-    useEffect(() => {
-        dispatch(setLoading(true))
-        console.log("loading 1 is:", loading)
-        function fetchPosts() {
-            fetch('https://dummyjson.com/posts?limit=28')
-                .then((response) => response.json())
-                .then((data) => {
-                    //setPosts(data.posts || [])
-                    const imagesArray = Object.values(images)
-                    const postsWithImages = data.posts.map((post, index) => ({
-                        ...post,
-                        image: imagesArray[index] // images[index]?.url could be useful if images are objects
-                    }));
-                    dispatch(setArticlesList(postsWithImages))
-                })
-                .catch((error) => console.log('Failed to fetch posts:', error))
-                .finally(() => dispatch(setLoading(false)))
-        }
-        fetchPosts()
-    }, [dispatch])
-    console.log("loading 2 is:", loading)
 
     if (loading || articlesList.length < 28) {
         console.log("Loading...")
