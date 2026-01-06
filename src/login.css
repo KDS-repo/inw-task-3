@@ -59,7 +59,6 @@
 .login__email:focus,
 .login__password:focus {
     outline: none;
-    border-color: #2AD18A;
 }
 
 .login__submit {
@@ -74,4 +73,9 @@
     cursor: pointer;
     line-height: 100%;
     width: 100%;
+}
+
+.login_incorrect {
+    border-color: #ff3860;
+    background-color: #fff5f5;
 }
