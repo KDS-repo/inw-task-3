@@ -1,10 +1,16 @@
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
+import { useState } from 'react';
 import './login.css';
 
 function Login() {
     const navigate = useNavigate()
+    const [email, setEmail] = useState('')
 
+    const checkEmail = (event) => {
+        const val = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(event.target.value)
+        console.log(val)
+    }
     const handleSubmit = (event) => {
         event.preventDefault()
         console.log('Login attempt!')
@@ -20,8 +26,8 @@ function Login() {
                 <input className='login__email'
                     type="email"
                     placeholder="Email"
-                    //value=
-                    //onChange=
+                    //value={email}
+                    onChange={checkEmail}
                     required
                 />
                 <input className='login__password'
