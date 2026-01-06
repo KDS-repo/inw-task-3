@@ -1,13 +1,30 @@
 import { Link } from 'react-router-dom'
 import svgs from '../svg/index.js'
+import { useDispatch } from 'react-redux';
+import { setCurrentArticle } from './redux/articleSlice';
+import { useNavigate } from 'react-router-dom';
 
 function Top({ posts }) {
+
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+    
+    const handleArticleClick = (e, article) => {
+        e.preventDefault()
+        dispatch(setCurrentArticle(article))
+        navigate(`/article/${article.id}`)
+        console.log("hi")
+    }
+
     return (
         <aside className="top">
             <span className="top__header">Top Stories</span>
             <div className="list">
                 {posts.map((post, index) =>
-                    <Link to={`/article/${post.id}`}  key={post.id} state={post}>
+                    <Link to={`/article/${post.id}`}
+                        key={post.id} state={post}
+                        onClick={(e) => handleArticleClick(e, post)}
+                    >
                         <article className="article">
                             <div>
                                 <div className="article__enumerator">{index + 1}</div>
