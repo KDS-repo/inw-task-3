@@ -1,2 +1,3 @@
 # Npm modules can be ignored since package-lock.json provides the same functionality without pushing and pulling heavy folders around
 node_modules
+dist
