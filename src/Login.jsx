@@ -1,9 +1,18 @@
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
+import { useState } from 'react';
+import './login.css';
 
 function Login() {
     const navigate = useNavigate()
+    //const [email, setEmail] = useState('')
+    const [isValid, setIsValid] = useState(true)
 
+    const checkEmail = (event) => {
+        // Emaiil validation regex
+        const val = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(event.target.value)
+        setIsValid(val)
+    }
     const handleSubmit = (event) => {
         event.preventDefault()
         console.log('Login attempt!')
@@ -16,11 +25,11 @@ function Login() {
             </h1>
             <h2 className='login__subheader'>Log in to your account</h2>
             <form onSubmit={handleSubmit} className="login-form">
-                <input className='login__email'
+                <input className={`login__email ${!isValid && 'login_incorrect'}`}
                     type="email"
                     placeholder="Email"
-                    //value=
-                    //onChange=
+                    //value={email}
+                    onChange={checkEmail}
                     required
                 />
                 <input className='login__password'
