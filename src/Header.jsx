@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import svgs from '../svg/index.js'
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useMeMutation } from "./redux/authAPI.js";
 
 function Header() {
     const [isMenuVisible, setIsMenuVisible] = useState(false);
@@ -11,6 +12,12 @@ function Header() {
     function closeMenu() {
         setIsMenuVisible(false);
     }
+    const [uName, setUName] = useState()
+    const [me, { isLoading, error }] = useMeMutation();
+    useEffect(() => {
+        const authToken = localStorage.getItem('token');
+        me(authToken).unwrap().then( (data) => setUName(data.firstName))
+    }, [])
 
     return (
         <header id="menu" className="header" data-menu={isMenuVisible}>
@@ -29,7 +36,9 @@ function Header() {
                 <a className="header__direction">Contact us</a>
             </nav>
             <div className="header__login-box">
-                <Link to="/login" className="header__login">Log in</Link>
+                <Link to="/login" className="header__login">
+                    {uName ? uName : 'Log in'}
+                </Link>
             </div>
         </header>
     )

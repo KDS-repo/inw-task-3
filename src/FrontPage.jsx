@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import Page from './Page.jsx'
-import { useGetArticlesQuery } from './redux/reduxAPI.js';
+import { useGetArticlesQuery } from './redux/articlesAPI';
 
 function FrontPage() {
     const { data: posts, isLoading, error } = useGetArticlesQuery();
