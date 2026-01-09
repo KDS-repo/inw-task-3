@@ -18,12 +18,7 @@ module.exports = (env, argv) => {
         {
           test: /\.(js|jsx|mjs)$/,
           exclude: /node_modules/,
-          use: {
-            loader: 'babel-loader',
-            options: {
-              presets: ['@babel/preset-env', '@babel/preset-react']
-            }
-          }
+          use: 'babel-loader'
         },
         {
           test: /\.css$/,
@@ -34,13 +29,6 @@ module.exports = (env, argv) => {
           type: 'asset/resource',
           generator: {
             filename: 'assets/images/[name][ext]'
-          }
-        },
-        {
-          test: /\.svg$/,
-          type: 'asset/resource',
-          generator: {
-            filename: 'assets/svgs/[name][ext]'
           }
         }
       ]
