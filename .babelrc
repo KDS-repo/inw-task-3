@@ -2,7 +2,7 @@
 {
   "presets": [
     ["@babel/preset-env", {
-      "modules": "auto",  // Keep ES6 modules
+      "modules": "commonjs",  // Keep ES6 modules
       "targets": "> 0.25%, not dead"
     }],
     ["@babel/preset-react", {
