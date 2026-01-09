@@ -1,0 +1,13 @@
+.front-page {
+    display: flex;
+    flex-direction: column;
+    row-gap: 80px;
+    padding: 40px 80px 80px 80px;
+}
+
+.front-page__relevant {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-rows: repeat(2, 1fr);
+    gap: 40px;
+}

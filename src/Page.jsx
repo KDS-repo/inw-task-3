@@ -1,5 +1,5 @@
 import MainArticle from './MainArticle.jsx'
-import Top from './Top.jsx'
+import TopArticle from './TopArticle.jsx'
 
 function Page({ posts, index }) {
     const even = Number(index) % 2 == 0
@@ -8,12 +8,26 @@ function Page({ posts, index }) {
             {even &&
                 <div className="page">
                     <MainArticle post={posts[0]} />
-                    <Top posts={posts.slice(1)} />
+                    <aside className="page__top">
+                        <span className="page__top-header">Top Stories</span>
+                        <div className="page__top-list">
+                            {posts.slice(1).map((post, index) =>
+                                <TopArticle post={post} index={index} key={post.id} />
+                            )}
+                        </div>
+                    </aside>
                 </div>
             }
             {!even &&
                 <div className="page">
-                    <Top posts={posts.slice(0, -1)} />
+                    <aside className="page__top">
+                        <span className="page__top-header">Top Stories</span>
+                        <div className="page__top-list">
+                            {posts.slice(0, -1).map((post, index) =>
+                                <TopArticle post={post} index={index} key={post.id} />
+                            )}
+                        </div>
+                    </aside>
                     <MainArticle post={posts.at(-1)} />
                 </div>
             }

@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react';
-import './login.css';
 import { useLoginMutation } from './redux/authAPI'
 
 function Login() {
