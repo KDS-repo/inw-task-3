@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import svgs from '../svg/index.js'
+import svgs from '../../svg/index.js'
 import { useEffect, useState } from "react";
-import { useMeMutation } from "./redux/authAPI.js";
+import { useMeMutation } from "../api/authAPI.js";
 
 function Header() {
     const [isMenuVisible, setIsMenuVisible] = useState(false);

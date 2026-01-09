@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import svgs from '../svg/index.js'
+import svgs from '../../svg/index.js'
 
 function TopArticle({post, index}) {
     return (

@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import articleReducer from './articleSlice';
-import { articlesAPI } from './articlesAPI';
-import { authAPI } from './authAPI';
+import { articlesAPI } from '../api/articlesAPI.js';
+import { authAPI } from '../api/authAPI.js';
 
 const store = configureStore({
     reducer: {

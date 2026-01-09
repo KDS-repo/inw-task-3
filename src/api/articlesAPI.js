@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import images from '/img/index.js';
+import images from '../../img/index.js';
 
 export const articlesAPI = createApi({
   // Do not confuse this and the name of the const. Yes, they are barely different. This is the reducer that manages cache

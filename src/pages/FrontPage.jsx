@@ -1,6 +1,5 @@
-import { Link } from 'react-router-dom'
 import Page from './Page.jsx'
-import { useGetArticlesQuery } from './redux/articlesAPI.js';
+import { useGetArticlesQuery } from '../api/articlesAPI.js';
 import RelevantArticle from './RelevantArticle.jsx';
 
 function FrontPage() {
