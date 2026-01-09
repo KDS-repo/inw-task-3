@@ -16,7 +16,11 @@ function Header() {
     const [me, { isLoading, error }] = useMeMutation();
     useEffect(() => {
         const authToken = localStorage.getItem('token');
-        me(authToken).unwrap().then( (data) => setUName(data.firstName))
+        me(authToken).unwrap()
+            .then((data) => setUName(data.firstName))
+            .catch((error) => {
+                error.status === 401 ? console.log("Token Expired") : console.error(error)
+            })
     }, [])
 
     return (
