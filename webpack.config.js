@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = (env, argv) => {
   const isProduction = argv.mode === 'production';
@@ -54,6 +55,16 @@ module.exports = (env, argv) => {
       new HtmlWebpackPlugin({
         template: './public/index.html',
         filename: 'index.html'
+      }),
+      // This one is for Netlify. It needs _redirects to handle SPAs well
+      // The plugin copies the file with no change
+      new CopyPlugin({
+        patterns: [
+          {
+            from: 'public/_redirects',
+            to: '.' // . evaluates to the target folder (dist)
+          }
+        ]
       })
     ],
 
