@@ -1,6 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { useGetArticleByIdQuery } from './redux/reduxAPI';
+import { useGetArticleByIdQuery } from '../api/articlesAPI';
 
 function Details() {
   const params = useParams()

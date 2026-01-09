@@ -1,15 +1,29 @@
-.top {
+.page {
+    min-height: 606px;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 40px;
+    column-gap: 40px;
+}
+
+.page__top {
     flex: 1 1 480px;
     display: flex;
     flex-direction: column;
     row-gap: 16px;
 }
 
-.top__header {
+.page__top-header {
     font-family: Inter, serif;
     font-size: 16px;
     font-weight: 700;
     line-height: 140%;
     color: var(--brand-green);
     margin-left: 48px;
+}
+
+.page__top-list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
 }

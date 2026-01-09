@@ -1,11 +1,12 @@
-.compact-article {
+
+.relevant-article {
     display: flex;
     flex-direction: column;
     row-gap: 16px;
     max-width: 100%;
 }
 
-.compact-article__image {
+.relevant-article__image {
     flex: 1 0 100%;
     max-width: 100%;
     max-height: 242.69px;
@@ -13,14 +14,14 @@
     object-fit:contain;
 }
 
-.compact-article__header {
+.relevant-article__header {
     font-family: Inter, serif;
     font-size: 22px;
     line-height: 140%;
     margin: 0;
 }
 
-.compact-article__summary {
+.relevant-article__summary {
     font-family: Inter, serif;
     font-size: 18px;
     font-weight: 400;

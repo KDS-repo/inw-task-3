@@ -1,9 +1,8 @@
 import { Routes, Route } from 'react-router-dom'
-import Login from "./Login.jsx"
-import FrontPage from "./FrontPage.jsx"
-import Details from './Details.jsx'
-import Layout from './Layout.jsx'
-import './index.css'
+import Login from './pages/Login.jsx'
+import FrontPage from './pages/FrontPage.jsx'
+import Details from './pages/Details.jsx'
+import Layout from './components/Layout.jsx'
 
 function App() {
   return (

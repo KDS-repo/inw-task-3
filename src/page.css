@@ -1,7 +1,0 @@
-.page {
-    min-height: 606px;
-    display: flex;
-    flex-wrap: wrap;
-    row-gap: 40px;
-    column-gap: 40px;
-}
