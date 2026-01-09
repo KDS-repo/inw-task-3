@@ -30,6 +30,15 @@ module.exports = (env, argv) => {
           generator: {
             filename: 'assets/images/[name][ext]'
           }
+        },
+        // This one is for Netlify. It needs _redirects to handle SPAs well
+        // The rule copies the file with no change
+        {
+          test: /_redirects$/,
+          type: 'asset/resource',
+          generator: {
+            filename: '[name][ext]' // Keeps the original filename
+          }
         }
       ]
     },
