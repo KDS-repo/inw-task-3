@@ -6,11 +6,8 @@ Find the hosted solution at https://gleeful-sherbet-d034f1.netlify.app/
 
 A News site built as a React Single Page Application. Front page of the site shows short summaries of a number of articles loaded from DummyJSON. Full version of the article can be opened with a click. Login page available with password check at DummyJSON. Try username: emilys, password: emilyspass, this is one of the users from DummyJSON database at https://dummyjson.com/users.
 
-#### Lighthouse check
-![W3C HTML check](image-1.png)
-
 #### W3C HTML check
-![W3C HTML check](image-1.png)
+![W3C HTML check](W3C-check.png)
 
 # How to run the app
 
